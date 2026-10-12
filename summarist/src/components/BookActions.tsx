@@ -32,7 +32,7 @@ const handleBookAccess = async () => {
   try {
     const userRef = doc(db, "users", user.uid);
     const userSnapshot = await getDoc(userRef);
-    console.log("User document exists:", userSnapshot.exists());
+    
 
     const subscription = userSnapshot.exists()
       ? userSnapshot.data().subscription

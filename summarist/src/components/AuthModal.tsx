@@ -7,6 +7,7 @@ import {
   signInAnonymously,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
   sendPasswordResetEmail,
 } from "firebase/auth";
 
@@ -38,9 +39,6 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     if (isRegistering) {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
-
-        console.log("Account created!");
-
         setEmail("");
         setPassword("");
         onClose();
@@ -82,7 +80,6 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     try {
       await signInAnonymously(auth);
       router.push("/for-you");
-   
 
       onClose();
     } catch (error) {
@@ -96,8 +93,6 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
       await signInWithPopup(auth, provider);
       router.push("/for-you");
 
-    
-
       onClose();
     } catch (error) {
       console.error("Error logging in with Google:", error);
@@ -110,8 +105,6 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
     try {
       await sendPasswordResetEmail(auth, email);
-
-      console.log("Password reset email sent!");
     } catch (error) {
       console.error("Error sending password reset email:", error);
     }

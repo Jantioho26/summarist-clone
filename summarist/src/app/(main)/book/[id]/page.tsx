@@ -17,7 +17,7 @@ export default async function BookPage({ params }: BookPageProps) {
   );
 
   const book = await response.json();
-  console.log("Book details:", book);
+ 
 
   return (
     <div>

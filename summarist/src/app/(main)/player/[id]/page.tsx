@@ -18,9 +18,6 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
 
 const responseText = await response.text();
 
-console.log("Book ID:", id);
-console.log("API status:", response.status);
-console.log("API response:", responseText);
 
 const book = JSON.parse(responseText);
 

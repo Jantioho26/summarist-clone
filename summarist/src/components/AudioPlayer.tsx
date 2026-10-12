@@ -38,7 +38,7 @@ export default function AudioPlayer({
         finishedAt: new Date(),
       });
 
-      console.log("Finished book saved to Firebase!");
+      
     } catch (error) {
       console.error("Error saving finished book:", error);
     }

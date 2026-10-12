@@ -41,7 +41,6 @@ const books = snapshot.docs.map((doc) => {
     return doc.data() as LibraryBook;
 });
    setLibraryBooks(books);
-    console.log("Library books:", books);
   };
   const fetchFinishedBooks = async () => {
   const user = auth.currentUser;
@@ -65,7 +64,7 @@ const books = snapshot.docs.map((doc) => {
 
     setFinishedBooks(books);
 
-    console.log("Finished books:", books);
+    
   } catch (error) {
     console.error("Error loading finished books:", error);
   }
